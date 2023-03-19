@@ -19,40 +19,55 @@ First, we need to create a GitHub repository to store our book. Here's what to d
    Copy and paste the following code:
 
 ```yaml
-name: Deploy
+name: Deploy mdBook site to Pages
+
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # To push a branch 
-      pull-requests: write  # To create a PR from that branch
+    env:
+      MDBOOK_VERSION: 0.4.21
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install mdbook
+      - name: Install mdBook
         run: |
           mkdir mdbook
           curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.27/mdbook-v0.4.27-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
           echo `pwd`/mdbook >> $GITHUB_PATH
-      - name: Deploy GitHub Pages
-        run: |
-          mdbook build
-          git worktree add gh-pages
-          git config user.name "Deploy from CI"
-          git config user.email ""
-          cd gh-pages
-          git update-ref -d refs/heads/gh-pages
-          rm -rf *
-          mv ../book/* .
-          git add .
-          git commit -m "Deploy $GITHUB_SHA to gh-pages"
-          git push --force --set-upstream origin gh-pages
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Build with mdBook
+        run: mdbook build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./book
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 ```
 
 4. **Commit and push your changes**: Run the following commands:

@@ -162,40 +162,55 @@ automation tool for tasks like book deployments.</li>
 <li><strong>Create a GitHub Actions workflow</strong>:  Create a new file called <code>.github/workflows/deploy.yml</code> in your repository.
 Copy and paste the following code:</li>
 </ol>
-<pre><code class="language-yaml">name: Deploy
+<pre><code class="language-yaml">name: Deploy mdBook site to Pages
+
 on:
   push:
-    branches:
-      - main
+    branches: [&quot;main&quot;]
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: &quot;pages&quot;
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # To push a branch 
-      pull-requests: write  # To create a PR from that branch
+    env:
+      MDBOOK_VERSION: 0.4.21
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install mdbook
+      - name: Install mdBook
         run: |
           mkdir mdbook
           curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.27/mdbook-v0.4.27-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
           echo `pwd`/mdbook &gt;&gt; $GITHUB_PATH
-      - name: Deploy GitHub Pages
-        run: |
-          mdbook build
-          git worktree add gh-pages
-          git config user.name &quot;Deploy from CI&quot;
-          git config user.email &quot;&quot;
-          cd gh-pages
-          git update-ref -d refs/heads/gh-pages
-          rm -rf *
-          mv ../book/* .
-          git add .
-          git commit -m &quot;Deploy $GITHUB_SHA to gh-pages&quot;
-          git push --force --set-upstream origin gh-pages
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+      - name: Build with mdBook
+        run: mdbook build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./book
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 </code></pre>
 <ol start="4">
 <li><strong>Commit and push your changes</strong>: Run the following commands:</li>
