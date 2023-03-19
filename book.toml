@@ -1,0 +1,71 @@
+[book]
+title = "ChatGPT Books with mdbook for Kids"
+authors = ["Sean Chatman"]
+language = "en"
+
+#[build]
+# The default directory to build the book to is `book`.
+# Uncomment the line below to specify a different directory.
+# output = "my_book"
+
+#[output.html]
+# Uncomment the line below to include a custom CSS file.
+# stylesheet = "custom.css"
+
+#[output.preview]
+# The `preview` subcommand will use this address to open the generated HTML
+# in a web browser.
+#address = "localhost"
+
+#[output.search]
+# Uncomment the line below to use the default theme for search.
+# theme = "dark"
+
+#[output.toc]
+# Uncomment the line below to disable numbering for sections in the table of contents.
+# numbered = false
+
+# Uncomment the lines below to configure the appearance of the table of contents.
+# See the mdbook documentation for more information.
+#
+# [output.toc.heading]
+# depth = 2
+#
+# [output.toc.separator]
+# tag = "-"
+# minimum_length = 3
+#
+# [output.toc.indent]
+# enabled = true
+# level = 2
+# tag = "  "
+
+#[dependencies]
+# Uncomment the line below to use the latest version of mdbook.
+# mdbook = "latest"
+
+#[preprocessor.chatgpt]
+# Uncomment the line below to use the latest version of ChatGPT.
+# version = "latest"
+#model = "your-model-name-here"
+
+#[output.ebook]
+# Uncomment the lines below to generate an EPUB version of your book.
+# See the mdbook documentation for more information.
+#
+# extension = "epub"
+#
+# [output.ebook]
+# title = "Using mdbook with ChatGPT on Windows"
+# author = "Your Name"
+# language = "en"
+# cover-image = "cover.png"
+# chapters = [
+#   {file = "Introduction.md", title = "Introduction"},
+#   {file = "Installing.md", title = "Installing mdbook and ChatGPT on Windows"},
+#   {file = "Summary.md", title = "Creating the Summary.md file with ChatGPT"},
+#   {file = "Individual_Files.md", title = "Creating individual files with mdbook"},
+#   {file = "Updating.md", title = "Updating the generated files with ChatGPT"},
+#   {file = "Markdown.md", title = "Basic markdown"},
+#   {file = "Conclusion.md", title = "Conclusion"}
+# ]
