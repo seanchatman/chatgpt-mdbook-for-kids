@@ -1,6 +1,6 @@
 # Markdown
 
-Markdown is a special way of writing things that makes it easier to read and understand. It uses symbols to create headings, lists, and more. 
+[Markdown](https://www.markdownguide.org/) is a special way of writing things that makes it easier to read and understand. It uses symbols to create headings, lists, and more. 
 ## Headers
 
 Headers help you create titles and subtitles. To create a header, use the `#` symbol followed by a space and your text.

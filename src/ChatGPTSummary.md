@@ -42,7 +42,7 @@ I hope this helps you get started with creating your Pokemon book! Good luck and
 
 ## Make the Chapters
 
-1. Run `mdbook build` to build the book. This will create the files in the src directory.
+1. Run `mdbook serve` to create all the md files in the `SUMMARY.md` in the `src` folder.
 
 ```commandline
 mdbook serve --open
@@ -67,4 +67,4 @@ mybook/
 
 ### Next Step
 
-We are going to update `what-are-pokemon.md` with ChatGPT.
+We are going to update `what-are-pokemon.md` with [Markdown](https://www.markdownguide.org/).
