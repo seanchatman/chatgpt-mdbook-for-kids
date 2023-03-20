@@ -1,5 +1,7 @@
 # Introduction
 
+![Book Cover](images/book-cover.jpg)
+
 Hi there! Are you ready to learn how to write your own book using mdbook and ChatGPT? It's going to be so much fun!
 
 First things first, we'll show you how to install [mdbook](). That way, you can start writing your book.
