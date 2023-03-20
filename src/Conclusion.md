@@ -9,4 +9,4 @@ things you can do like making your own cool designs and adding fun things to you
 If you want to learn more about mdbook and ChatGPT, you can check out the official websites and other places online. You
 can also try new writing styles and share your books with others to get better and better.
 
-Thanks for reading "mdbook and ChatGPT for Kids"! We hope you had fun learning and creating your own cool books!
+Thanks for reading "ChatGPT Books with mdbook for Kids"! We hope you had fun learning and creating your own cool books!

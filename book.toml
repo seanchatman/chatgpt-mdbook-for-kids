@@ -56,16 +56,16 @@ language = "en"
 # extension = "epub"
 #
 # [output.ebook]
-# title = "Using mdbook with ChatGPT on Windows"
+# title = "ChatGPT Books with mdbook for Kids"
 # author = "Your Name"
 # language = "en"
 # cover-image = "cover.png"
 # chapters = [
 #   {file = "Introduction.md", title = "Introduction"},
 #   {file = "Installing.md", title = "Installing mdbook and ChatGPT on Windows"},
-#   {file = "Summary.md", title = "Creating the Summary.md file with ChatGPT"},
-#   {file = "Individual_Files.md", title = "Creating individual files with mdbook"},
-#   {file = "Updating.md", title = "Updating the generated files with ChatGPT"},
-#   {file = "Markdown.md", title = "Basic markdown"},
+#   {file = "ChatGPTSummary.md", title = "Updating SUMMARY.md with ChatGPT"},
+#   {file = "Updating.md", title = "Writing with ChatGPT"},
+#   {file = "Markdown.md", title = "Basic Markdown"},
+#   {file = "Deploying.md", title = "Deploying to GitHub Pages"},
 #   {file = "Conclusion.md", title = "Conclusion"}
 # ]

@@ -1,4 +1,4 @@
-# Updating SUMMARY.md
+# Updating SUMMARY.md with ChatGPT
 
 1. Open the [ChatGPT](https://chat.openai.com/chat) website.
 2. Copy and paste this into ChatGPT and submit:

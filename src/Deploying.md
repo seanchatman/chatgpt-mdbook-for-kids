@@ -8,7 +8,7 @@ First, we need to create a [Git repository](https://git-scm.com/book/en/v2/Getti
 
 1. Sign up for a [GitHub account](https://github.com/signup). 
 2. Create a [new repository](https://github.com/new) for your book.
-3. Add your book director to the repository. [It is hard but you can do it!](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git).
+3. Add your book directory to the repository. [It is hard but you can do it!](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git).
 4. Enter these commands to add your book's files to the repository:
 ```commandline
 git add .
@@ -25,7 +25,7 @@ https://github.com/<username>/<repository-name>/actions
 
 5. After the GitHub Actions workflow has run, your book will be available at 
 ```text
-https://<your-username>.github.io/<repository-name>/.
+https://<username>.github.io/<repository-name>/.
 ```
 
 Share this link with your friends and family!
