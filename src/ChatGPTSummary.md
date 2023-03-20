@@ -7,7 +7,7 @@
 I am a 9 year old that wants to make a mdbook SUMMARY.md for a book about pokemon`.
 ```
 
-3. Open the `mybook/src/SUMMARY.md` file in Notepad.
+3. Open the `mybook/src/SUMMARY.md` file with Notepad.
 4. Copy and paste the new text into `SUMMARY.md`.
 5. Save and close `SUMMARY.md`.
 
@@ -45,10 +45,13 @@ I hope this helps you get started with creating your Pokemon book! Good luck and
 1. Run `mdbook build` to build the book. This will create the files in the src directory.
 
 ```commandline
-mdbook build
+mdbook serve --open
 ```
 
-2. This is what the directory structure should look like:
+2. A browser window will open [http://localhost:3000]( http://127.0.0.1:3000). This is where you can browse your book before you deploy.
+
+
+3. This is what the directory structure should look like:
 
 ```text
 mybook/
